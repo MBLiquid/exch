@@ -1,0 +1,383 @@
+/* Basic Reset & Body Styles */
+:root {
+    --primary-color: #f0b90b; /* Binance yellow */
+    --secondary-color: #333;
+    --dark-bg: #1a1a1a;
+    --light-bg: #2b2b2b;
+    --text-color: #e0e0e0;
+    --accent-color: #007bff; /* Blue for strong calls to action */
+    --link-color: #72aeff; /* Lighter blue for embedded links */
+    --border-color: #444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--dark-bg);
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+ul li::before {
+    content: '✓'; /* Checkmark */
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Links & Buttons */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+.text-link {
+    font-weight: 600;
+    border-bottom: 1px dashed var(--link-color);
+}
+
+.text-link:hover {
+    border-bottom-color: var(--primary-color);
+}
+
+.hidden-link {
+    /* Style to make them look like normal text, but still clickable */
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none;
+    font-weight: inherit;
+}
+
+.hidden-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+}
+
+.primary-btn:hover {
+    background-color: #ffd700; /* Lighter yellow */
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.secondary-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.table-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background-color: var(--accent-color);
+    color: #fff;
+}
+.table-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Header/Hero Section */
+.hero {
+    /* Replace this URL with your actual background image */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./polygon-world-tech-vector.jpg?text=Crypto+Background+Image') no-repeat center center/cover;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 900px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sections */
+section {
+    padding: 6rem 5%;
+    position: relative;
+}
+
+.section-intro {
+    text-align: center;
+    padding-bottom: 3rem;
+    background-color: var(--light-bg);
+}
+
+.exchange-section {
+    padding: 4rem 5%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.light-bg {
+    background-color: var(--light-bg);
+}
+
+.dark-bg {
+    background-color: var(--dark-bg);
+}
+
+/* Exchange Card Layout */
+.exchange-card {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    align-items: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(40, 40, 40, 0.8); /* Slightly lighter card background */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.exchange-card.reverse {
+    flex-direction: row-reverse; /* For alternating layout */
+}
+
+.exchange-logo {
+    flex: 0 0 200px; /* Fixed width for logo area */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.exchange-logo img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Circular logos */
+    object-fit: contain;
+    background-color: #fff; /* White background for logos */
+    padding: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.exchange-info {
+    flex: 1; /* Takes remaining space */
+    min-width: 300px; /* Ensures content doesn't get too narrow */
+}
+
+/* Comparison Table */
+.section-comparison {
+    text-align: center;
+    /* Replace this URL with your actual background image */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('./digital-data-nexus-stockcake.jpg?text=Table+Background') no-repeat center center/cover;
+    background-attachment: fixed; /* Parallax effect */
+}
+
+.table-container {
+    overflow-x: auto; /* Enable horizontal scroll on small screens */
+    margin-top: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    max-width: 1000px;
+    background-color: var(--light-bg); /* Table background */
+    border-radius: 8px;
+    overflow: hidden; /* For border-radius on table */
+}
+
+th, td {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: var(--secondary-color);
+    color: #fff;
+    font-weight: 700;
+    white-space: nowrap; /* Prevent wrapping for headers */
+}
+
+td {
+    color: var(--text-color);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(40, 40, 40, 0.8); /* Stripe effect */
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: #bbb;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
+
+footer small {
+    display: block;
+    margin-top: 1rem;
+    line-height: 1.5;
+    color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+    section {
+        padding: 4rem 5%;
+    }
+    .exchange-card {
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+    .exchange-logo {
+        flex: 0 0 150px;
+    }
+    .exchange-logo img {
+        width: 120px;
+        height: 120px;
+    }
+    th, td {
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1.3rem;
+    }
+    .hero {
+        padding: 1rem;
+    }
+    .exchange-card, .exchange-card.reverse {
+        flex-direction: column; /* Stack elements vertically on small screens */
+        text-align: center;
+    }
+    .exchange-logo {
+        margin-bottom: 1rem;
+        flex: none; /* Remove flex basis */
+    }
+    .exchange-info {
+        min-width: unset; /* Remove min-width constraint */
+    }
+    .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    ul li {
+        text-align: left; /* Keep list items left-aligned */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    section {
+        padding: 3rem 5%;
+    }
+    .exchange-card {
+        padding: 1rem;
+    }
+    .exchange-logo img {
+        width: 100px;
+        height: 100px;
+    }
+    th, td {
+        font-size: 0.8rem;
+        padding: 0.6rem;
+    }
+    .table-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+}
